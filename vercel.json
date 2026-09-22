@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/youtube/download",
+      "dest": "/api/youtube/download",
+      "headers": {
+        "cache-control": "no-store"
+      }
+    }
+  ],
+  "functions": {
+    "src/app/api/youtube/download/route.js": {
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
